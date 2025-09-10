@@ -1,8 +1,8 @@
 board := "pro"
 flags := "--verbose"
 # flags := "--build-property build.extra_flags=-O0 --verbose"
-# port :=  "/dev/cu.usbserial-130"
-port :=  "/dev/cu.usbserial-1130"
+port :=  "/dev/cu.usbserial-130"
+# port :=  "/dev/cu.usbserial-1130"
 core_path := "~/Library/Caches/arduino/cores/arduino_avr_pro_46fe4eb87ed95e1eb730d64a8a94a969/core.a"
 asm := "power_trace"
 
@@ -19,7 +19,7 @@ build_asm:
 
 
 upload_asm: build_asm
-    avrdude -C avrdude.conf -p atmega328p -c arduino -P {{port}} -b 57600 -D -U flash:w:./build/blink.hex:i
+    avrdude -C avrdude.conf -p atmega328p -c arduino -P {{port}} -b 57600 -D -U flash:w:./build/{{asm}}.hex:i
 
 build:
     arduino-cli compile {{flags}} --fqbn arduino:avr:{{board}} power_trace.ino
