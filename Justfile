@@ -19,7 +19,7 @@ build_asm:
 
 
 upload_asm: build_asm
-    avrdude -C avrdude.conf -p atmega328p -c arduino -P {{port}} -b 57600 -D -U flash:w:./build/{{asm}}.hex:i
+    avrdude -C avrdude.conf -p atmega328p -c arduino -P {{port}} -b 57600 -D -U flash:w:./target/{{asm}}.hex:i
 
 build:
     arduino-cli compile {{flags}} --fqbn arduino:avr:{{board}} power_trace.ino
