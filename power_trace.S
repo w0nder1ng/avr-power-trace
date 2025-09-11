@@ -11,6 +11,8 @@
 #define low lo8
 #define high hi8
 
+
+
 ; ldi r16, 0x0
 ; ldi r17, (1<<PB5)
 
@@ -31,7 +33,8 @@ loop:
     rjmp loop
 
 delay_1s:
-    ldi r20, 1 ; about 1 second delay
+    ldi r20, 10 ; about 1 second delay
+    ; ldi r20, 32 ; about 1 second delay
     ; ldi r20, 20 ; about 0.5 second delay
     delay1: ldi r21, 250
     delay2: ldi r22, 250
@@ -46,8 +49,8 @@ delay_1s:
 
 
 run_1000:
-    ldi r24, low(1000)
-    ldi r25, high(1000)
+    ldi r24, low(10000)
+    ldi r25, high(10000)
     
     run_1000_loop:
         add r23, r24
